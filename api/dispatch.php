@@ -1,6 +1,9 @@
-
 <?php
-session_start();
+ob_start();
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 $root = dirname(__DIR__);
 chdir($root);
