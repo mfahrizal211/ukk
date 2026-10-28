@@ -1,5 +1,8 @@
 
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 $host = getenv('DB_HOST');
 $port = (int) (getenv('DB_PORT') ?: 3306);
 $user = getenv('DB_USER');
