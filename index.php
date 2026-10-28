@@ -1,5 +1,9 @@
 <?php
-include "koneksi.php";
+if (getenv('VERCEL')) {
+    require_once __DIR__ . '/koneksi_online.php';
+} else {
+    require_once __DIR__ . '/koneksi.php';
+}
 if (!isset($_SESSION['user'])) {
     header('location: login.php');
 }
